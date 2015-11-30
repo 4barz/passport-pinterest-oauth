@@ -1,7 +1,7 @@
 {
   "name": "passport-pinterest-oauth",
   "version": "0.2.0",
-  "description": "Pinterest (OAuth) authentication strategies for Passport.",
+  "description": "Pinterest (OAuth) authentication strategies for Passport. Inspired by https://github.com/jaredhanson/passport-google-oauth",
   "keywords": ["passport", "pinterest", "auth", "authn", "authentication", "identity"],
   "repository": {
     "type": "git",
