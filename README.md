@@ -1,83 +1,37 @@
-# Passport-Google-OAuth
+# Passport-Pinterest-OAuth
 
-[Passport](http://passportjs.org/) strategies for authenticating with [Google](http://www.google.com/)
+[Passport](http://passportjs.org/) strategies for authenticating with [Pinterest](http://www.pinterest.com/)
 using OAuth 1.0a and OAuth 2.0.
 
-This module lets you authenticate using Google in your Node.js applications.
-By plugging into Passport, Google authentication can be easily and
+This module lets you authenticate using Pinterest in your Node.js applications.
+By plugging into Passport, Pinterest authentication can be easily and
 unobtrusively integrated into any application or framework that supports
 [Connect](http://www.senchalabs.org/connect/)-style middleware, including
 [Express](http://expressjs.com/).
 
-The client id and client secret needed to authenticate with Google can be set up from the developer's console [Google Developer's Console](https://console.developers.google.com/project).
+The client id and client secret needed to authenticate with Pinterest can be set up from the developer's console [Google Developer's Console](https://console.developers.google.com/project).
 
 ## Install
 
-    $ npm install passport-google-oauth
+    $ npm install passport-pinterest-oauth
 
-## Usage of OAuth 1.0
-
-#### Configure Strategy
-
-The Google OAuth 1.0 authentication strategy authenticates users using a Google
-account and OAuth tokens.  The strategy requires a `verify` callback, which
-accepts these credentials and calls `done` providing a user, as well as `options`
-specifying a consumer key, consumer secret, and callback URL.
-
-```Javascript
-var GoogleStrategy = require('passport-google-oauth').OAuthStrategy;
-
-passport.use(new GoogleStrategy({
-    consumerKey: GOOGLE_CONSUMER_KEY,
-    consumerSecret: GOOGLE_CONSUMER_SECRET,
-    callbackURL: "http://127.0.0.1:3000/auth/google/callback"
-  },
-  function(token, tokenSecret, profile, done) {
-    User.findOrCreate({ googleId: profile.id }, function (err, user) {
-      return done(err, user);
-    });
-  }
-));
-```
-
-#### Authenticate Requests
-
-Use `passport.authenticate()`, specifying the `'google'` strategy, to
-authenticate requests.
-
-Authentication with Google requires an extra scope parameter.  For information, go [here](https://developers.google.com/accounts/docs/OpenIDConnect#scope-param).
-
-For example, as route middleware in an [Express](http://expressjs.com/)
-application:
-
-```Javascript
-app.get('/auth/google',
-  passport.authenticate('google', { scope: 'https://www.google.com/m8/feeds' }));
-
-app.get('/auth/google/callback', 
-  passport.authenticate('google', { failureRedirect: '/login' }),
-  function(req, res) {
-    // Successful authentication, redirect home.
-    res.redirect('/');
-  });
-```
 
 ## Usage of OAuth 2.0
 
 #### Configure Strategy
 
-The Google OAuth 2.0 authentication strategy authenticates users using a Google
+The Pinterest OAuth 2.0 authentication strategy authenticates users using a Pinterest
 account and OAuth 2.0 tokens.  The strategy requires a `verify` callback, which
 accepts these credentials and calls `done` providing a user, as well as
 `options` specifying a client ID, client secret, and callback URL.
 
 ```Javascript
-var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+var PinterestStrategy = require('passport-pinterest-oauth').OAuth2Strategy;
 
-passport.use(new GoogleStrategy({
-    clientID: GOOGLE_CLIENT_ID,
-    clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://127.0.0.1:3000/auth/google/callback"
+passport.use(new PinterestStrategy({
+    clientID: PINTEREST_CLIENT_ID,
+    clientSecret: PINTEREST_CLIENT_SECRET,
+    callbackURL: "http://127.0.0.1:3000/auth/pinterest/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     User.findOrCreate({ googleId: profile.id }, function (err, user) {
@@ -89,19 +43,24 @@ passport.use(new GoogleStrategy({
 
 #### Authenticate Requests
 
-Use `passport.authenticate()`, specifying the `'google'` strategy, to
+Use `passport.authenticate()`, specifying the `'pinterest'` strategy, to
 authenticate requests.
-Authentication with Google requires an extra scope parameter.  For information, go [here](https://developers.google.com/accounts/docs/OpenIDConnect#scope-param).
+Authentication with Pinterest requires an extra scope parameter.  For information, go [here](https://developers.pinterest.com).
 
 For example, as route middleware in an [Express](http://expressjs.com/)
 application:
 
 ```Javascript
-app.get('/auth/google',
-  passport.authenticate('google', { scope: 'https://www.googleapis.com/auth/plus.login' }));
+app.get('/auth/pinterest',
+  passport.authenticate('pinterest', { scope: [
+      'read_pubic',
+      'write_public',
+      'read_relationships',
+      'write_relationships'
+    ] }));
 
-app.get('/auth/google/callback', 
-  passport.authenticate('google', { failureRedirect: '/login' }),
+app.get('/auth/pinterest/callback', 
+  passport.authenticate('pinterest', { failureRedirect: '/login' }),
   function(req, res) {
     // Successful authentication, redirect home.
     res.redirect('/');
@@ -111,17 +70,16 @@ app.get('/auth/google/callback',
 ## Examples
 
 For a complete, working example, refer to the [OAuth 1.0 example](https://github.com/jaredhanson/passport-google-oauth/tree/master/examples/oauth)
-and the [OAuth 2.0 example](https://github.com/jaredhanson/passport-google-oauth/tree/master/examples/oauth2).
+and the [OAuth 2.0 example](https://github.com/jaredhanson/passport-google-oauth/tree/master/examples/oauth2) as they are simillar to pinterest auth.
 
 ## Tests
 
     $ npm install --dev
     $ make test
 
-[![Build Status](https://secure.travis-ci.org/jaredhanson/passport-google-oauth.png)](http://travis-ci.org/jaredhanson/passport-google-oauth)
 
 ## Credits
-
+  - [Rubin Apore](http://github.com/4barz)
   - [Jared Hanson](http://github.com/jaredhanson)
 
 ## License

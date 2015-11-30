@@ -1,28 +1,28 @@
 var vows = require('vows');
 var assert = require('assert');
 var util = require('util');
-var GoogleStrategy = require('passport-google-oauth/oauth2');
+var PinterestStrategy = require('passport-pinterest-oauth/oauth2');
 
 
-vows.describe('GoogleStrategy').addBatch({
+vows.describe('PinterEsts trategy').addBatch({
   
   'strategy': {
     topic: function() {
-      return new GoogleStrategy({
+      return new PinterEsts trategy({
         clientID: 'ABC123',
         clientSecret: 'secret'
       },
       function() {});
     },
     
-    'should be named google': function (strategy) {
-      assert.equal(strategy.name, 'google');
+    'should be named pinterest': function (strategy) {
+      assert.equal(strategy.name, 'pinterest');
     },
   },
   
   'strategy authorization params': {
     topic: function() {
-      return new GoogleStrategy({
+      return new PinterestStrategy({
         clientID: 'ABC123',
         clientSecret: 'secret'
       },
@@ -74,7 +74,7 @@ vows.describe('GoogleStrategy').addBatch({
   
   'strategy when loading user profile': {
     topic: function() {
-      var strategy = new GoogleStrategy({
+      var strategy = new PinterestStrategy({
         clientID: 'ABC123',
         clientSecret: 'secret'
       },
@@ -106,9 +106,9 @@ vows.describe('GoogleStrategy').addBatch({
   "familyName": "Hanson",\
   "givenName": "Jared"\
  },\
- "url": "https://plus.google.com/+JaredHanson",\
+ "url": "https://plus.pinterest.com/+JaredHanson",\
  "image": {\
-  "url": "https://lh5.googleusercontent.com/-AAAAA-AAAAA/AAAAAAAAAAA/AAAAAAAAAAA/AAAAAAAAAAA/photo.jpg?sz=50",\
+  "url": "https://lh5.pinterestusercontent.com/-AAAAA-AAAAA/AAAAAAAAAAA/AAAAAAAAAAA/AAAAAAAAAAA/photo.jpg?sz=50",\
   "isDefault": false\
  },\
  "organizations": [\
@@ -152,14 +152,14 @@ vows.describe('GoogleStrategy').addBatch({
         assert.isNull(err);
       },
       'should load profile' : function(err, profile) {
-        assert.equal(profile.provider, 'google');
+        assert.equal(profile.provider, 'pinterest');
         assert.equal(profile.id, '111111111111111111111');
         assert.equal(profile.displayName, 'Jared Hanson');
         assert.equal(profile.name.familyName, 'Hanson');
         assert.equal(profile.name.givenName, 'Jared');
         assert.equal(profile.emails[0].value, 'example@gmail.com');
         assert.equal(profile.emails[0].type, 'account');
-        assert.equal(profile.photos[0].value, 'https://lh5.googleusercontent.com/-AAAAA-AAAAA/AAAAAAAAAAA/AAAAAAAAAAA/AAAAAAAAAAA/photo.jpg?sz=50');
+        assert.equal(profile.photos[0].value, 'https://lh5.pinterestusercontent.com/-AAAAA-AAAAA/AAAAAAAAAAA/AAAAAAAAAAA/AAAAAAAAAAA/photo.jpg?sz=50');
       },
       'should set raw property' : function(err, profile) {
         assert.isString(profile._raw);
@@ -172,7 +172,7 @@ vows.describe('GoogleStrategy').addBatch({
   
   'strategy when loading user profile and encountering an error': {
     topic: function() {
-      var strategy = new GoogleStrategy({
+      var strategy = new PinterestStrategy({
         clientID: 'ABC123',
         clientSecret: 'secret'
       },

@@ -1,25 +1,25 @@
 {
-  "name": "passport-google-oauth",
+  "name": "passport-pinterest-oauth",
   "version": "0.2.0",
-  "description": "Google (OAuth) authentication strategies for Passport.",
-  "keywords": ["passport", "google", "auth", "authn", "authentication", "identity"],
+  "description": "Pinterest (OAuth) authentication strategies for Passport.",
+  "keywords": ["passport", "pinterest", "auth", "authn", "authentication", "identity"],
   "repository": {
     "type": "git",
-    "url": "git://github.com/jaredhanson/passport-google-oauth.git"
+    "url": "git://github.com/4barz/passport-pinterest-oauth.git"
   },
   "bugs": {
-    "url": "http://github.com/jaredhanson/passport-google-oauth/issues"
+    "url": "http://github.com/4barz/passport-pinterest-oauth/issues"
   },
   "author": {
-    "name": "Jared Hanson",
-    "email": "jaredhanson@gmail.com",
-    "url": "http://www.jaredhanson.net/"
+    "name": "Rubin Apore",
+    "email": "rubin.apore@gmail.com",
+    "url": "aporerubin.github.io"
   },
   "licenses": [ {
     "type": "MIT",
     "url": "http://www.opensource.org/licenses/MIT" 
   } ],
-  "main": "./lib/passport-google-oauth",
+  "main": "./lib/passport-pinterest-oauth",
   "dependencies": {
     "pkginfo": "0.3.x",
     "passport-oauth": "^1.0.0"

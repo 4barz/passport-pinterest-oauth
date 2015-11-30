@@ -1,14 +1,14 @@
 var vows = require('vows');
 var assert = require('assert');
 var util = require('util');
-var GoogleStrategy = require('passport-google-oauth/oauth');
+var PinterestStrategy = require('passport-pinterest-oauth/oauth');
 
 
-vows.describe('GoogleStrategy').addBatch({
+vows.describe('PinterestStrategy').addBatch({
   
   'strategy': {
     topic: function() {
-      return new GoogleStrategy({
+      return new PinterestStrategy({
         consumerKey: 'ABC123',
         consumerSecret: 'secret'
       },
@@ -22,7 +22,7 @@ vows.describe('GoogleStrategy').addBatch({
   
   'strategy request token params': {
     topic: function() {
-      return new GoogleStrategy({
+      return new PinterestStrategy({
         consumerKey: 'ABC123',
         consumerSecret: 'secret'
       },
@@ -41,7 +41,7 @@ vows.describe('GoogleStrategy').addBatch({
   
   'strategy when loading user profile': {
     topic: function() {
-      var strategy = new GoogleStrategy({
+      var strategy = new PinterEststrategy({
         consumerKey: 'ABC123',
         consumerSecret: 'secret'
       },
@@ -89,7 +89,7 @@ vows.describe('GoogleStrategy').addBatch({
   
   'strategy when loading user profile and encountering an error': {
     topic: function() {
-      var strategy = new GoogleStrategy({
+      var strategy = new PinterEststrategy({
         consumerKey: 'ABC123',
         consumerSecret: 'secret'
       },
