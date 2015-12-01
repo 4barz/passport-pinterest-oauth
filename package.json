@@ -19,7 +19,7 @@
     "type": "MIT",
     "url": "http://www.opensource.org/licenses/MIT" 
   } ],
-  "main": "./lib/passport-pinterest-oauth",
+  "main": "./lib/passport",
   "dependencies": {
     "pkginfo": "0.3.x",
     "passport-oauth": "^1.0.0"
