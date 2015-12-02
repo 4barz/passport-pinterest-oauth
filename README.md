@@ -34,7 +34,7 @@ passport.use(new PinterestStrategy({
     callbackURL: "http://127.0.0.1:3000/auth/pinterest/callback"
   },
   function(accessToken, refreshToken, profile, done) {
-    User.findOrCreate({ googleId: profile.id }, function (err, user) {
+    User.findOrCreate({ pinterestId: profile.id }, function (err, user) {
       return done(err, user);
     });
   }
